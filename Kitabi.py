@@ -44,6 +44,29 @@ def is_logged_in():
 def index():
     return render_template('index.html', is_logged_in=is_logged_in())
 
+@app.route('/dashboard', methods=['GET'])
+def dashboard():
+    if is_logged_in:
+        return render_template('dashboard.html', is_logged_in=is_logged_in())
+    else:
+        return redirect(url_for('login'))
+    
+@app.route('/newText', methods=['GET', 'POST'])
+def newText():
+    if request.method == 'POST':
+        return 
+    if is_logged_in:
+        return render_template('newText.html', is_logged_in=is_logged_in())
+    return redirect(url_for('login'))
+    
+@app.route('/export', methods=['GET', 'POST'])
+def export():
+    if request.method == 'POST':
+        return 
+    if is_logged_in:
+        return render_template('export.html', is_logged_in=is_logged_in())
+    return redirect(url_for('login'))
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
