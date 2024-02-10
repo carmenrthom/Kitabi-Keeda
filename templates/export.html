@@ -20,13 +20,19 @@
         </ul>
       </nav> 
         <div class="row">
-            <form action="/" method="POST">
-                <label for="username">Select Language Corpus:</label>
-                <select>
+          <form action="/" method="POST">
+            <div class="container">
+              <div class="left-column">
+                <label for="lang">Select Language Corpus:</label>
+                <select name="lang" id="lang">
                     <option value="en">English</option>
                 </select>
-                <input type="submit" value="Export">
-              </form>              
+              </div>
+            </div>
+            <div class="b">
+              <input type="submit" value="Export">
+            </div>
+          </form>              
         </div>
     </main>
   </body>

@@ -156,4 +156,24 @@ select {
     padding-left: 10px;
 }
 
+table {
+    margin-top: 30px;
+    margin-left: 30px;
+    border-collapse: collapse;
+    width:100%;
+    color:white;
+}
 
+td,th{
+    border: 1px solid white;
+    text-align: left;
+    padding: 8px;
+}
+
+td {
+    max-width: 500px;
+}
+
+tr:nth-child(odd){
+    background-color:#485d58
+}
