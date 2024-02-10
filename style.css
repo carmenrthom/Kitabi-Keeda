@@ -1,0 +1,106 @@
+html{
+    padding: 0;
+    margin:0;
+    height:100vh;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1c312c;
+}
+
+main {
+    padding: 0;
+    margin:0;
+}
+
+nav {
+    margin: 0 auto;
+    padding: 0;
+    width: 100vw;
+    height: 90px;
+    background-color: #485d58;
+    float:left;
+    display: block;
+}
+ul {
+    padding-top: 0;
+    float: left;
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+}
+
+.main {
+    padding-top: 0;
+    margin-top: 0;
+    float: left;
+    display: block;
+    width:75vw;
+}
+.login{
+    padding-top: 0;
+    margin-top: 0;
+    float: right;
+    display: block;
+    width:  25vw;
+}
+
+li {
+    margin-top: 0;
+    padding-top: 0;
+    float: left;
+    display: block;
+}
+  
+li a{
+float: left;
+display: block;
+color: black;
+text-align: center;
+color: white;
+margin-top: 27px;
+margin-right: 20px;
+margin-left: 20px;
+font-size: x-large;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 10px;
+padding-right:10px;
+text-align: center;
+text-decoration: none;
+}
+
+.row {
+    display:block;
+    float:left;
+}
+
+h1 {
+    margin-top:0;
+    padding-top: 20vh;
+    color: white;
+    font-size: 90px;
+    
+}
+.box {
+    margin-top:0;
+    width: 32vw;
+    display:block;
+    float:left;
+    padding-left: 20px;
+    padding-right: 60px;
+}
+
+.mission {
+    margin-top:0;
+    padding-left: 0;
+    padding-right: 10px;
+    padding-top: 35vh; 
+    width:58vw; 
+    display:block;
+    float:right;
+    color:white;
+    font-size: 20px
+}
