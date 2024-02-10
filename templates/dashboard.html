@@ -21,6 +21,33 @@
         </ul>
     </nav> 
     <div class="row">
+        <form action="/dashboard" method="GET">
+            <div class="container">
+                <div class="left-column">
+                    <label for="diff">Select Difficulty:</label>
+                    <select name="diff" id="diff">
+                        <option value="">All</option>
+                        <option value="1">Beginner</option>
+                        <option value="2">Intermediate</option>
+                        <option value="3">Advanced</option>
+                        <option value="4">Fluent</option>
+                    </select>
+                </div>
+                <div class="right-column">
+                    <label for="lang">Select Language:</label>
+                    <select name="lang" id="lang">
+                        <option value="">All</option>
+                        <option value="English">English</option>
+                        <!-- Add more options for other languages -->
+                    </select>
+                </div>
+            </div>
+            <div class="b">
+                <input type="submit" value="Filter">
+            </div>
+        </form>              
+    </div>
+    <div class="row">
         <table>
             <tr>
                 <th>Text</th>

@@ -115,6 +115,7 @@ def new_text():
     # Render the new_text.html template for GET requests
     return render_template('newText.html', is_logged_in=is_logged_in())
 
+"""
 @app.route('/dashboard', methods=['GET'])
 def dashboard():
     if is_logged_in():
@@ -129,7 +130,35 @@ def dashboard():
         return render_template('dashboard.html', is_logged_in=is_logged_in(), cards_data=cards_data)
     else:
         return redirect(url_for('login'))
+"""
+@app.route('/dashboard', methods=['GET'])
+def dashboard():
+    if is_logged_in():
+        # Fetch query parameters
+        diff = request.args.get('diff')
+        lang = request.args.get('lang')
 
+        # Construct the SQL query based on the provided parameters
+        query = "SELECT text, lang, diff FROM cards"
+        if diff and lang:
+            query += f" WHERE diff='{diff}' AND lang='{lang}'"
+        elif diff:
+            query += f" WHERE diff='{diff}'"
+        elif lang:
+            query += f" WHERE lang='{lang}'"
+
+        # Fetch data from the cards table
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute(query)
+        cards_data = cursor.fetchall()
+        conn.close()
+
+        # Render the dashboard template with cards data
+        return render_template('dashboard.html', is_logged_in=is_logged_in(), cards_data=cards_data)
+    else:
+        return redirect(url_for('login'))
+        
 @app.route('/export', methods=['GET', 'POST'])
 def export():
     if request.method == 'POST':
