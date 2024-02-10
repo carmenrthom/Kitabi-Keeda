@@ -187,3 +187,7 @@ input[type=submit]{
     text-decoration: none;
     border-radius: 12px;
 }
+
+a {
+    color:white;
+}
