@@ -1,8 +1,9 @@
-html{
+html {
     padding: 0;
-    margin:0;
-    height:100vh;
+    margin: 0;
+    height: 100vh;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -11,7 +12,7 @@ body {
 
 main {
     padding: 0;
-    margin:0;
+    margin: 0;
 }
 
 nav {
@@ -20,9 +21,10 @@ nav {
     width: 100vw;
     height: 90px;
     background-color: #485d58;
-    float:left;
+    float: left;
     display: block;
 }
+
 ul {
     padding-top: 0;
     float: left;
@@ -37,14 +39,15 @@ ul {
     margin-top: 0;
     float: left;
     display: block;
-    width:75vw;
+    width: 75vw;
 }
-.login{
+
+.login {
     padding-top: 0;
     margin-top: 0;
     float: right;
     display: block;
-    width:  25vw;
+    width: 25vw;
 }
 
 li {
@@ -53,54 +56,104 @@ li {
     float: left;
     display: block;
 }
-  
-li a{
-float: left;
-display: block;
-color: black;
-text-align: center;
-color: white;
-margin-top: 27px;
-margin-right: 20px;
-margin-left: 20px;
-font-size: x-large;
-padding-top: 5px;
-padding-bottom: 5px;
-padding-left: 10px;
-padding-right:10px;
-text-align: center;
-text-decoration: none;
+
+li a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    color: white;
+    margin-top: 27px;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: x-large;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    text-decoration: none;
 }
 
 .row {
-    display:block;
-    float:left;
+    display: block;
+    float: left;
 }
 
 h1 {
-    margin-top:0;
+    margin-top: 0;
     padding-top: 20vh;
     color: white;
     font-size: 90px;
-    
 }
+
 .box {
-    margin-top:0;
+    margin-top: 0;
     width: 32vw;
-    display:block;
-    float:left;
+    display: block;
+    float: left;
     padding-left: 20px;
     padding-right: 60px;
 }
 
 .mission {
-    margin-top:0;
+    margin-top: 0;
     padding-left: 0;
     padding-right: 10px;
-    padding-top: 35vh; 
-    width:58vw; 
-    display:block;
-    float:right;
-    color:white;
-    font-size: 20px
+    padding-top: 35vh;
+    width: 58vw;
+    display: block;
+    float: right;
+    color: white;
+    font-size: 20px;
 }
+
+.user-in {
+    padding-left: 100px;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start; 
+}
+
+.left-column {
+    padding-left: 10px;
+    padding-top:20px;
+    margin-right: 20px;
+    width: 280px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color:white;
+    -webkit-text-stroke-width: 0.25px;
+    -webkit-text-stroke-color: black;
+}
+
+textarea {
+    width: 100%; /* Adjust the width of the textarea */
+    resize: none;
+    float:left;
+    height: 100px;
+}
+
+.right-column {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin-left: 10px;
+}
+
+select {
+    margin-bottom: 10px;
+}
+
+.b{
+    padding-top:10px;
+    padding-left: 10px;
+}
+
+
