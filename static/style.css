@@ -177,3 +177,13 @@ td {
 tr:nth-child(odd){
     background-color:#485d58
 }
+
+input[type=submit]{
+    text-align: center;
+    border: 1px solid white;
+    padding: 15px;
+    color:white;
+    background-color:#485d58;
+    text-decoration: none;
+    border-radius: 12px;
+}
