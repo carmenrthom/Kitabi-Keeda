@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, Response
 import sqlite3
+import csv
 import os
 
 app = Flask("kitabi-keeda")
@@ -129,14 +130,43 @@ def dashboard():
     else:
         return redirect(url_for('login'))
 
-
 @app.route('/export', methods=['GET', 'POST'])
 def export():
     if request.method == 'POST':
-        return 
-    if is_logged_in:
-        return render_template('export.html', is_logged_in=is_logged_in())
-    return redirect(url_for('login'))
+        lang = request.form.get('lang')
+
+        # Fetch data from the cards table based on the selected language
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT text, lang, diff FROM cards WHERE lang=?", (lang,))
+        cards_data = cursor.fetchall()
+        conn.close()
+
+        # Create a CSV string with the fetched data
+        csv_data = "Text,Language,Difficulty\n"
+        for card in cards_data:
+            text = card[0].replace("\n", " ").strip()  # Remove newline characters and leading/trailing spaces
+            lang = card[1]
+            diff = str(card[2])
+
+            # Escape commas within the text field by enclosing in double quotes and doubling any existing double quotes
+            text = text.replace('"', '""')
+            text = f'"{text}"' if ',' in text else text
+
+            print("THIS IS THE TEXT")
+            print(text)
+
+            csv_data += f'{text},{lang},{diff}\n'
+
+        # Set up response headers for CSV download
+        response = Response(csv_data, mimetype='text/csv')
+        response.headers.set("Content-Disposition", "attachment", filename="cards.csv")
+
+        return response
+
+    # Render the export.html template for GET requests
+    return render_template('export.html')
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -187,5 +217,4 @@ def logout():
 if __name__ == '__main__':
     create_table()
     card_create_table()
-    print_all_cards()
     app.run(debug=True)

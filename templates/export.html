@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Export</title>
     <link rel="stylesheet" href="../static/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main>
-      <nav>
+</head>
+<body>
+<main>
+    <nav>
         <ul class="main">
             <li><a href="/dashboard">Dashboard</a></li>
             <li><a href="/newText">Add Text</a></li>
@@ -19,22 +19,23 @@
         <ul class="user-in">
             <li><a href="/login">Logout</a></li>
         </ul>
-      </nav> 
-        <div class="row">
-          <form action="/" method="POST">
+    </nav> 
+    <div class="row">
+        <form action="/export" method="POST">
             <div class="container">
-              <div class="left-column">
-                <label for="lang">Select Language Corpus:</label>
-                <select name="lang" id="lang">
-                    <option value="en">English</option>
-                </select>
-              </div>
+                <div class="left-column">
+                    <label for="lang">Select Language Corpus:</label>
+                    <select name="lang" id="lang">
+                        <option value="English">English</option>
+                        <!-- Add other language options here if needed -->
+                    </select>
+                </div>
             </div>
             <div class="b">
-              <input type="submit" value="Export">
+                <input type="submit" value="Export">
             </div>
-          </form>              
-        </div>
-    </main>
-  </body>
+        </form>              
+    </div>
+</main>
+</body>
 </html>
