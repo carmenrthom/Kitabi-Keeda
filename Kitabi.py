@@ -48,6 +48,20 @@ def get_user(email):
     conn.close()
     return user
 
+def print_all_cards():
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM cards")
+    rows = cursor.fetchall()
+    conn.close()
+
+    if rows:
+        print("All entries in the cards table:")
+        for row in rows:
+            print(row)
+    else:
+        print("No entries found in the cards table.")
+
 
 # Check if user is logged in
 def is_logged_in():
@@ -165,4 +179,5 @@ def logout():
 if __name__ == '__main__':
     create_table()
     card_create_table()
+    print_all_cards()
     app.run(debug=True)
