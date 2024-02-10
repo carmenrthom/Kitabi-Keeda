@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="../static/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main>
-        <nav>
-            <ul class="main">
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/newText">Add Text</a></li>
-                <li><a href="/export">Export</a></li>
-            </ul>
-            <ul class="user-in">
-                <li><a href="/login">Logout</a></li>
-            </ul>
-        </nav>  
-        <div class="row">
-          <form action="/">
+</head>
+<body>
+<main>
+    <nav>
+        <ul class="main">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/newText">Add Text</a></li>
+            <li><a href="/export">Export</a></li>
+        </ul>
+        <ul class="user-in">
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>  
+    <div class="row">
+        <form action="/newText" method="POST">
             <div class="container">
-              <div class="left-column">
-                <label for="userText">Enter new text:</label>
-                <textarea id="userText" name="userText" rows="4" cols="50" placeholder="Enter here:"></textarea><br><br>
-              </div>
-              <div class="right-column">
-                <label for="diff">Difficulty:</label>
-                <select name="diff" id="diff">
-                  <option value="" disabled selected hidden></option>
-                  <option value=1>Beginner</option>
-                  <option value=2>Intermediate</option>
-                  <option value=3>Advanced</option>
-                  <option value=4>Fluent</option>
-                </select>
+                <div class="left-column">
+                    <label for="userText">Enter new text:</label>
+                    <textarea id="userText" name="userText" rows="4" cols="50" placeholder="Enter here:"></textarea><br><br>
+                </div>
+                <div class="right-column">
+                    <label for="diff">Difficulty:</label>
+                    <select name="diff" id="diff">
+                        <option value="" disabled selected hidden></option>
+                        <option value="1">Beginner</option>
+                        <option value="2">Intermediate</option>
+                        <option value="3">Advanced</option>
+                        <option value="4">Fluent</option>
+                    </select>
 
-                <label for="lang">Language:</label>
-                <select name="lang" id="lang">
-                  <option value="" disabled selected hidden></option>
-                  <option value=1>English</option>
-                </select>
-              </div>
+                    <label for="lang">Language:</label>
+                    <select name="lang" id="lang">
+                        <option value="" disabled selected hidden></option>
+                        <option value="English">English</option>
+                    </select>
+                </div>
             </div>
             <div class="b">
-              <input type="submit" value="Submit">
+                <input type="submit" value="Submit">
             </div>
-          </form>          
-        </div>
-    </main>
-  </body>
+        </form>          
+    </div>
+</main>
+</body>
 </html>

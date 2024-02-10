@@ -27,6 +27,7 @@ def card_create_table():
                  id INTEGER PRIMARY KEY AUTOINCREMENT,
                  text TEXT UNIQUE NOT NULL,
                  diff INTEGER NOT NULL,
+                 lang TEXT NOT NULL,
                  auth TEXT NOT NULL)''')
     conn.commit()
     conn.close()
@@ -62,7 +63,8 @@ def dashboard():
         return render_template('dashboard.html', is_logged_in=is_logged_in())
     else:
         return redirect(url_for('login'))
-    
+
+"""    
 @app.route('/newText', methods=['GET', 'POST'])
 def newText():
     if request.method == 'POST':
@@ -70,7 +72,42 @@ def newText():
     if is_logged_in:
         return render_template('newText.html', is_logged_in=is_logged_in())
     return redirect(url_for('login'))
-    
+"""
+
+@app.route('/newText', methods=['GET', 'POST'])
+def new_text():
+    if request.method == 'POST':
+        if not is_logged_in():
+            flash('You need to login first.', 'error')
+            return redirect(url_for('login'))
+
+        user_text = request.form['userText']
+        difficulty = request.form['diff']
+        language = request.form['lang']
+        author = session.get('email')  # Assuming you store user's email in session upon login
+
+        
+        if not author:
+            flash('Unable to retrieve user information.', 'error')
+            return redirect(url_for('login'))
+
+        # Insert the new text into the cards table
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO cards (text, diff, lang, auth) VALUES (?, ?, ?, ?)",
+                       (user_text, difficulty, language, author))
+        conn.commit()
+        conn.close()
+        print("ADDED TEXT TO DATABASE")
+
+        flash('Text added successfully!', 'success')
+        return redirect(url_for('dashboard'))
+
+    # Render the new_text.html template for GET requests
+    return render_template('newText.html', is_logged_in=is_logged_in())
+
+
+
 @app.route('/export', methods=['GET', 'POST'])
 def export():
     if request.method == 'POST':
@@ -110,6 +147,7 @@ def login():
         user = get_user(email)
         if user and user[2] == password:  # user[2] is the password field
             session['logged_in'] = True
+            session['email'] = email
             flash('Login successful!', 'success')
             print("logged in as " + str(user))
             return redirect(url_for('index'))
