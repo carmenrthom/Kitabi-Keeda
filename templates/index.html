@@ -10,6 +10,17 @@
   </head>
   <body>
     <main>
+        {% if is_logged_in %}
+        <nav>
+          <ul class="main">
+              <li><a href="/">Dashboard</a></li>
+              <li><a href="/">Add Text</a></li>
+          </ul>
+          <ul class="user-in">
+              <li><a href="/login">Logout</a></li>
+          </ul>
+      </nav>
+      {% else %}
         <nav>
             <ul class="main">
                 <li><a href="/">Home</a></li>
@@ -19,6 +30,7 @@
                 <li><a href="/register">Register</a></li>
             </ul>
         </nav>  
+        {% endif %}
         <div class="row">
             <div class="box">
                 <h1>Our Mission as Kitabi-Keeda</h1>

@@ -35,9 +35,14 @@ def get_user(email):
     conn.close()
     return user
 
+
+# Check if user is logged in
+def is_logged_in():
+    return 'logged_in' in session
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', is_logged_in=is_logged_in())
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
