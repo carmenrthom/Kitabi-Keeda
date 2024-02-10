@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main>
-        <nav>
-            <ul class="main">
-                <li><a href="/">Home</a></li>
-            </ul>
-            <ul class="user">
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
-            </ul>
-        </nav>  
-        <div class="row">
-            <form action="/">
-              <div class="container">
+</head>
+<body>
+<main>
+    <nav>
+        <ul class="main">
+            <li><a href="/">Home</a></li>
+        </ul>
+        <ul class="user">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </nav>
+    <div class="row">
+        <form action="/register" method="POST">
+            <div class="container">
                 <div class="left-column">
-                  <label for="fname">Email:</label>
-                  <input type="text" id="em" name="em"><br><br>
-                  <label for="fname">Email confirmation:</label>
-                  <input type="text" id="emvf" name="emvf"><br><br>
-                  <label for="lname">Password:</label>
-                  <input type="password" id="pw" name="pw"><br><br>
+                    <label for="em">Email:</label>
+                    <input type="text" id="em" name="email"><br><br>
+                    <label for="pw">Password:</label>
+                    <input type="password" id="pw" name="password"><br><br>
+                    <label for="pw">Password confirmation:</label>
+                    <input type="password" id="pw" name="confirm_password"><br><br>
                 </div>
-              </div>
-              <div class="b">
+            </div>
+            <div class="b">
                 <input type="submit" value="Submit">
-              </div>
-            </form>              
-        </div>
-    </main>
-  </body>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
 </html>
