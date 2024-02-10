@@ -71,12 +71,6 @@ def is_logged_in():
 def index():
     return render_template('index.html', is_logged_in=is_logged_in())
 
-@app.route('/dashboard', methods=['GET'])
-def dashboard():
-    if is_logged_in:
-        return render_template('dashboard.html', is_logged_in=is_logged_in())
-    else:
-        return redirect(url_for('login'))
 
 """    
 @app.route('/newText', methods=['GET', 'POST'])
@@ -120,6 +114,20 @@ def new_text():
     # Render the new_text.html template for GET requests
     return render_template('newText.html', is_logged_in=is_logged_in())
 
+@app.route('/dashboard', methods=['GET'])
+def dashboard():
+    if is_logged_in():
+        # Fetch data from the cards table
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT text, lang, diff FROM cards")
+        cards_data = cursor.fetchall()
+        conn.close()
+
+        # Render the dashboard template with cards data
+        return render_template('dashboard.html', is_logged_in=is_logged_in(), cards_data=cards_data)
+    else:
+        return redirect(url_for('login'))
 
 
 @app.route('/export', methods=['GET', 'POST'])
