@@ -20,6 +20,18 @@ def create_table():
     conn.commit()
     conn.close()
 
+def card_create_table():
+    conn = create_connection()
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS cards (
+                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                 text TEXT UNIQUE NOT NULL,
+                 diff INTEGER NOT NULL,
+                 auth TEXT NOT NULL)''')
+    conn.commit()
+    conn.close()
+
+
 def register_user(email, password):
     conn = create_connection()
     c = conn.cursor()
@@ -114,4 +126,5 @@ def logout():
 
 if __name__ == '__main__':
     create_table()
+    card_create_table()
     app.run(debug=True)
